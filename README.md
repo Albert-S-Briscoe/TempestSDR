@@ -146,3 +146,8 @@ make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 java -jar ~/development/TempestSDR/JavaGUI/JTempestSDR.jar 
 ```
+
+
+AirSpy
+------
+Check out the Airspy branch. It provides rudimentary native support for Airspy in Linux.
