@@ -138,6 +138,8 @@ mkdir ~/development
 cd ~/development
 git clone https://github.com/tanpc/TempestSDR.git
 cd TempestSDR/
+git branch -a
+git checkout airspy
 make clean
 make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
