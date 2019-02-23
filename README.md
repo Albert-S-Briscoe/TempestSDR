@@ -138,8 +138,6 @@ mkdir ~/development
 cd ~/development
 git clone https://github.com/tanpc/TempestSDR.git
 cd TempestSDR/
-git branch -a
-git checkout airspy
 make clean
 make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
@@ -152,4 +150,22 @@ java -jar ~/development/TempestSDR/JavaGUI/JTempestSDR.jar
 
 AirSpy
 ------
-Check out the Airspy branch. It provides rudimentary native support for Airspy in Linux.
+Check out the Airspy. It provides rudimentary native support for Airspy in Linux.
+Airspy branch has been merged to master.
+
+
+Ettus
+------
+Check out the Ettus branch. It provides rudimentary native support update to Ettus SDR in Linux.
+
+##### Clone git and build
+```
+mkdir ~/development
+cd ~/development
+git clone https://github.com/tanpc/TempestSDR.git
+cd TempestSDR/
+git branch -a
+git checkout ettus
+make clean
+make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+```
