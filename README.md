@@ -68,12 +68,6 @@ to
 
     PLUGINS += TSDRPlugin_ExtIO
 
-### Linux and OS X
-
-On Linux and OS X, compiling the GUI will also compile the UHD driver, so you will need to have UHD and the corresponding boost libraries installed (UHD will install them automatically). If you don't want the UHD drivers, then you can skip their compilation by removing the line 91 for Linux and line 93 for OS X from the Makefile in the JavaGUI directory. This is how those lines look like by default:
-
-    PLUGINS += TSDRPlugin_UHD
-
 
 Building the libraries
 ------------
@@ -110,29 +104,49 @@ The project is built with Eclipse with the CDT plugin (but this is not required)
 
 You need to have MinGW installed and gcc and make commands need to be in your path. Also javac and javah also need to be in your path.
 
+
+
+
+
 ### Linux
 
-#### Ubuntu LTS 18.04.1 LTS Bionic Beaver 
+### Ubuntu LTS 18.04.1 LTS Bionic Beaver 
 - End of Life Date: April 2023
 - ubuntu-18.04.1-desktop-amd64.iso
 - https://www.ubuntu.com/
 
-##### Update, Upgrade Ubuntu
+#### Update, Upgrade Ubuntu
 ```
 sudo apt update
 sudo apt upgrade
 sudo apt dist-upgrade
 ```
 
-##### Install tools, compilers and libraries
+#### Install tools, compilers and libraries
 ```
 sudo apt install vim aptitude git
 sudo apt install openjdk-8-jdk
 sudo apt install make gcc g++
-sudo apt install libuhd-dev libhackrf-dev librtlsdr-dev libairspy-dev
 ```
 
-##### Clone git and build
+#### Install base libraries
+```
+sudo apt install libuhd-dev libhackrf-dev librtlsdr-dev
+```
+
+#### Install libraries for Airspy
+```
+sudo apt install libairspy-dev
+```
+
+#### Install updated libraries from Ettus Research
+```
+sudo add-apt-repository ppa:ettusresearch/uhd
+sudo apt-get update
+sudo apt-get install libuhd-dev libuhd003 uhd-host
+```
+
+#### Clone git and build
 ```
 mkdir ~/development
 cd ~/development
@@ -142,7 +156,7 @@ make clean
 make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ```
 
-##### Run Application
+#### Run Application
 ```
 java -jar ~/development/TempestSDR/JavaGUI/JTempestSDR.jar 
 ```
@@ -150,30 +164,10 @@ java -jar ~/development/TempestSDR/JavaGUI/JTempestSDR.jar
 
 AirSpy
 ------
-Check out the Airspy. It provides rudimentary native support for Airspy in Linux.
+It provides rudimentary native support for Airspy in Linux.
 Airspy branch has been merged to master.
-
 
 Ettus
 ------
-Check out the Ettus branch. It provides rudimentary native support update to Ettus SDR in Linux.
-
-
-##### Install tools, compilers and libraries
-```
-sudo add-apt-repository ppa:ettusresearch/uhd
-sudo apt-get update
-sudo apt-get install libuhd-dev libuhd003 uhd-host
-```
-
-##### Clone git and build
-```
-mkdir ~/development
-cd ~/development
-git clone https://github.com/tanpc/TempestSDR.git
-cd TempestSDR/
-git branch -a
-git checkout ettus
-make clean
-make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-```
+It provides updated support for Ettus SDR in Linux.
+Ettus branch has been merged to master.
