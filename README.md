@@ -11,7 +11,7 @@ The software consists of a library written in C, a collection of plug-ins for va
 
 Linux
 -----
-### Ubuntu LTS 18.04.1 LTS Bionic Beaver 
+### Ubuntu 18.04.1 LTS Bionic Beaver 
 - End of Life Date: April 2023
 - ubuntu-18.04.1-desktop-amd64.iso
 - https://www.ubuntu.com/
