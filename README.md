@@ -158,6 +158,14 @@ Ettus
 ------
 Check out the Ettus branch. It provides rudimentary native support update to Ettus SDR in Linux.
 
+
+##### Install tools, compilers and libraries
+```
+sudo add-apt-repository ppa:ettusresearch/uhd
+sudo apt-get update
+sudo apt-get install libuhd-dev libuhd003 uhd-host
+```
+
 ##### Clone git and build
 ```
 mkdir ~/development
