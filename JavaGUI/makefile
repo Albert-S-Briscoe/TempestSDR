@@ -86,14 +86,14 @@ PLUGINS=TSDRPlugin_RawFile
 
 ifeq ($(OSNAME),WINDOWS)
 # Windows only plugins
-PLUGINS += TSDRPlugin_SDRPlay TSDRPlugin_ExtIO
+PLUGINS += TSDRPlugin_SDRPlay2 TSDRPlugin_ExtIO
 else ifeq ($(OSNAME), LINUX)
 PLUGINS += TSDRPlugin_librtlsdr
 PLUGINS += TSDRPlugin_Airspy
 PLUGINS += TSDRPlugin_HackRF
 PLUGINS += TSDRPlugin_UHD
 else ifeq ($(OSNAME), MAC)
-PLUGINS += TSDRPlugin_UHD TSDRPlugin_SDRPlay
+PLUGINS += TSDRPlugin_UHD TSDRPlugin_SDRPlay2
 endif
 
 # USER CONFIGURATION ENDS HERE
