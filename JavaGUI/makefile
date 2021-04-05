@@ -88,6 +88,9 @@ ifeq ($(OSNAME),WINDOWS)
 # Windows only plugins
 PLUGINS += TSDRPlugin_SDRPlay TSDRPlugin_ExtIO
 else ifeq ($(OSNAME), LINUX)
+PLUGINS += TSDRPlugin_librtlsdr
+PLUGINS += TSDRPlugin_Airspy
+PLUGINS += TSDRPlugin_HackRF
 PLUGINS += TSDRPlugin_UHD
 else ifeq ($(OSNAME), MAC)
 PLUGINS += TSDRPlugin_UHD TSDRPlugin_SDRPlay
