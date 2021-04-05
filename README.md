@@ -9,15 +9,6 @@ The toolkit uses unmodified off-the-shelf hardware which lowers the costs and in
 
 The software consists of a library written in C, a collection of plug-ins for various Software Define Radio (SDR) front-ends and a Java based Graphical User Interface (GUI). It is a multi-platform application, with all native libraries pre-compiled and packed into a single Java jar file.
 
-Release
-------------
-
- * [JTempestSDR.jar](https://raw.github.com/martinmarinov/TempestSDR/master/Release/JavaGUI/JTempestSDR.jar) is the self contained multi platform GUI executable. It should work with just a double click on most Windows/Ubuntu x86/x64 based machines.
- * [Download dlls] (https://github.com/martinmarinov/TempestSDR/tree/master/Release/dlls) contains the precompiled dll files for Linux/Windows x86/x64 which you can use in your own project under the GNU GPL license.
-
-Double click on the JTempestSDR.jar file to launch. If it fails to launch, you will need to recompile the project.
-
-
 Building the executable
 ------------
 
@@ -29,21 +20,13 @@ If it fails to find "jni.h", you should run one of the following commands:
 
     make all JAVA_HOME=path_to_jdk_installation
 
-On Windows 8 x64 this could look like
-
-    make all JAVA_HOME=C:/PROGRA~2/Java/jdk1.7.0_45
-	
-To force compilation for X64 or X32 (in case your compiler supports it), do the following
-
-    make all JAVA_HOME=C:/PROGRA~2/Java/jdk1.7.0_45 ARCHNAME=X64
-
 On Ubuntu with openjdk it could look like
 
-    make all JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
+    make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
-On Mac OSX commmand might look like
+On other Linux distros like Arch it might look like
 
-    make all JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home
+    make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 
 Note: This will also compile the plugins. Some of them require additional libraries! You can disable the plugin compilation by editing the Makefile in JavaSDR.
 
@@ -75,28 +58,6 @@ to
 
 On Linux and OS X, compiling the GUI will also compile the UHD driver, so you will need to have UHD and the corresponding boost libraries installed (UHD will install them automatically). If you don't want the UHD drivers, then you can skip their compilation by removing the line 91 for Linux and line 93 for OS X from the Makefile in the JavaGUI directory.
 
-
-Building the libraries
-------------
-
-All project could be built both with Eclipse and make as well.
-
-### TempestSDR library
-
-Enter the folder and type
-
-    make all
-	
-This will produce the library which could be found in the bin subdir. The headers you need to interface with it are located in src/include.
-
-### Plugins
-
-Go into a plugin directory and type
-
-    make all
-	
-This should work unless there is something specific for the plugin itself. Look for a README in this case.
-
 Folder Structure
 ------------
 
@@ -111,8 +72,46 @@ The project is built with Eclipse with the CDT plugin (but this is not required)
 
 You need to have MinGW installed and gcc and make commands need to be in your path. Also javac and javah also need to be in your path.
 
-### Linux
+Building the executable on Ubuntu
+-----
 
-To be announced soon.
+### Ubuntu 18.04.1 LTS Bionic Beaver 
+- End of Life Date: April 2023
+- ubuntu-18.04.1-desktop-amd64.iso
+- https://www.ubuntu.com/
 
+#### Update, Upgrade, install tools and compilers
+```
+sudo apt update
+sudo apt upgrade
+sudo apt dist-upgrade
+sudo apt install vim aptitude git openjdk-8-jdk make gcc g++
+```
 
+#### Install base libraries
+```
+sudo apt install libuhd-dev libhackrf-dev librtlsdr-dev
+```
+
+#### Install libraries for Airspy and from Ettus Research
+```
+sudo apt install libairspy-dev
+sudo add-apt-repository ppa:ettusresearch/uhd
+sudo apt-get update
+sudo apt-get install libuhd-dev libuhd003 uhd-host
+```
+
+#### git clone and build
+```
+mkdir ~/src
+cd ~/src
+git clone https://github.com/Albert-S-Briscoe/TempestSDR.git
+cd TempestSDR/
+make clean
+make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+```
+
+#### Run Application
+```
+java -jar ~/src/TempestSDR/JavaGUI/JTempestSDR.jar 
+```
