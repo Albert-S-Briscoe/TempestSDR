@@ -9,6 +9,27 @@ The toolkit uses unmodified off-the-shelf hardware which lowers the costs and in
 
 The software consists of a library written in C, a collection of plug-ins for various Software Define Radio (SDR) front-ends and a Java based Graphical User Interface (GUI). It is a multi-platform application, with all native libraries pre-compiled and packed into a single Java jar file.
 
+What Is This Fork?
+------------
+
+This fork is mainly intended for Linux, but some plugins might compile on windows, and some with some minor tweaks.
+
+Linux compatible plugins included:
+
+ * RTL-SDR
+ * Airspy
+ * HackRF
+ * UHD
+ * Rough SDRPlay API v3 plugin (not included yet)
+
+I'm only able to test RTL-SDR and SDRPlay.
+
+#### SDRPlay support
+
+Currently, the plugin will just choose the first device it finds.
+
+I have no idea if anything other than the RSP1A will work, but the RSP1 probably will. This is a work in progress.
+
 Building the executable
 ------------
 
